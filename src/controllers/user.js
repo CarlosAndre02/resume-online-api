@@ -30,4 +30,41 @@ module.exports = {
       return res.json(null);
     }
   },
+  async update(req, res) {
+    try {
+      const user = await User.findByPk(req.params.id);
+
+      if (!user) {
+        return res.status(400).json({
+          errors: ['Usuário não existe'],
+        });
+      }
+
+      const newData = await user.update(req.body);
+      const { id, username } = newData;
+      return res.json({ id, username });
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  },
+  async delete(req, res) {
+    try {
+      const user = await User.findByPk(req.params.id);
+
+      if (!user) {
+        return res.status(400).json({
+          errors: ['Usuário não existe'],
+        });
+      }
+
+      await user.destroy();
+      return res.json(null);
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  },
 };
