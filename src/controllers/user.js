@@ -20,4 +20,14 @@ module.exports = {
       });
     }
   },
+  async show(req, res) {
+    try {
+      const user = await User.findByPk(req.params.id);
+
+      const { id, username } = user;
+      return res.json({ id, username });
+    } catch (e) {
+      return res.json(null);
+    }
+  },
 };
