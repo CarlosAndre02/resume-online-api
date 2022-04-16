@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Resume = require('../models/Resume');
 
 module.exports = {
   async index(req, res) {
@@ -13,6 +14,9 @@ module.exports = {
     try {
       const newUser = await User.create(req.body);
       const { id, username } = newUser;
+
+      await Resume.create({ username });
+
       return res.json({ id, username });
     } catch (e) {
       return res.status(400).json({
