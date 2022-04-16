@@ -1,5 +1,5 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('users', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('resumes', {
     id: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -11,10 +11,6 @@ module.exports = {
       allowNull: false,
       unique: true,
     },
-    password_hash: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
     created_at: {
       type: Sequelize.DATE,
       allowNull: false,
@@ -25,5 +21,5 @@ module.exports = {
     },
   }),
 
-  down: (queryInterface) => queryInterface.dropTable('users'),
+  down: (queryInterface) => queryInterface.dropTable('resumes'),
 };
