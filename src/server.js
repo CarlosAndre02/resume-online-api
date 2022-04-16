@@ -11,6 +11,7 @@ require('./database/index');
 // Routes
 app.use(require('./routes/user'));
 app.use(require('./routes/authenticate'));
+app.use(require('./routes/resume'));
 
 const port = process.env.APP_PORT || 3000;
 app.listen(port, () => console.log(`Acessar http://localhost:${port}`));
