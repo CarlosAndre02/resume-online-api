@@ -4,8 +4,9 @@ const databaseConfig = require('../config/database');
 const userModel = require('../models/User');
 const resumeModel = require('../models/Resume');
 const profileModel = require('../models/Profile');
+const photosModel = require('../models/Photos');
 
-const models = [userModel, resumeModel, profileModel];
+const models = [userModel, resumeModel, profileModel, photosModel];
 
 const connection = new Sequelize(databaseConfig);
 

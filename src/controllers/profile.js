@@ -1,5 +1,6 @@
 const Resume = require('../models/Resume');
 const Profile = require('../models/Profile');
+const Photo = require('../models/Photos');
 
 module.exports = {
   async show(req, res) {
@@ -30,6 +31,12 @@ module.exports = {
           'linkedin_link',
           'github_link',
           'resume_id',
+        ],
+        include: [
+          {
+            model: Photo,
+            attributes: ['id', 'originalname', 'filename', 'url', 'profile_id'],
+          },
         ],
       });
 

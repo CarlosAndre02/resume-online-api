@@ -98,5 +98,6 @@ module.exports = class Profile extends Model {
 
   static associate(models) {
     this.belongsTo(models.Resume);
+    this.hasOne(models.Photo, { foreignKey: 'profile_id' });
   }
 };
