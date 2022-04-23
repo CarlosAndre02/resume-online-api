@@ -28,5 +28,6 @@ module.exports = class Resume extends Model {
 
   static associate(models) {
     this.hasOne(models.Profile, { foreignKey: 'resume_id' });
+    this.hasOne(models.About, { foreignKey: 'resume_id' });
   }
 };
