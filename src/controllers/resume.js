@@ -3,6 +3,7 @@ const Profile = require('../models/Profile');
 const Photo = require('../models/Photos');
 const About = require('../models/About');
 const Skill = require('../models/Skill');
+const Experience = require('../models/Experience');
 
 module.exports = {
   async show(req, res) {
@@ -38,6 +39,10 @@ module.exports = {
           {
             model: Skill,
             attributes: ['id', 'skill', 'resume_id'],
+          },
+          {
+            model: Experience,
+            attributes: ['id', 'position', 'company', 'start_date', 'end_date', 'description', 'resume_id'],
           },
         ],
       });

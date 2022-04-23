@@ -16,6 +16,7 @@ app.use(require('./routes/profile'));
 app.use(require('./routes/photo'));
 app.use(require('./routes/about'));
 app.use(require('./routes/skill'));
+app.use(require('./routes/experience'));
 
 const port = process.env.APP_PORT || 3000;
 app.listen(port, () => console.log(`Acessar http://localhost:${port}`));

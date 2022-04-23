@@ -7,10 +7,21 @@ const profileModel = require('../models/Profile');
 const photosModel = require('../models/Photos');
 const aboutModel = require('../models/About');
 const skillModel = require('../models/Skill');
+const experienceModel = require('../models/Experience');
 
-const models = [userModel, resumeModel, profileModel, photosModel, aboutModel, skillModel];
+const models = [
+  userModel,
+  resumeModel,
+  profileModel,
+  photosModel,
+  aboutModel,
+  skillModel,
+  experienceModel,
+];
 
 const connection = new Sequelize(databaseConfig);
 
 models.forEach((model) => model.init(connection));
-models.forEach((model) => model.associate && model.associate(connection.models));
+models.forEach(
+  (model) => model.associate && model.associate(connection.models),
+);
