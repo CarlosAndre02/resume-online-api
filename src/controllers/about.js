@@ -3,11 +3,11 @@ const About = require('../models/About');
 
 module.exports = {
   async show(req, res) {
-    const { username } = req.params;
+    const { userUsername } = req;
 
     try {
       const resume = await Resume.findOne({
-        where: { username },
+        where: { username: userUsername },
         attributes: ['id'],
       });
 
@@ -28,12 +28,12 @@ module.exports = {
     }
   },
   async update(req, res) {
-    const { username } = req.params;
+    const { userUsername } = req;
     const { description } = req.body;
 
     try {
       const resume = await Resume.findOne({
-        where: { username },
+        where: { username: userUsername },
         attributes: ['id'],
       });
 
