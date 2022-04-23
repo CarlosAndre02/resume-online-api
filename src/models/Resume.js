@@ -31,5 +31,6 @@ module.exports = class Resume extends Model {
     this.hasOne(models.About, { foreignKey: 'resume_id' });
     this.hasMany(models.Skill, { foreignKey: 'resume_id' });
     this.hasMany(models.Experience, { foreignKey: 'resume_id' });
+    this.hasMany(models.Education, { foreignKey: 'resume_id' });
   }
 };

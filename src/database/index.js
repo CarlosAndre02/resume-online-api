@@ -8,6 +8,7 @@ const photosModel = require('../models/Photos');
 const aboutModel = require('../models/About');
 const skillModel = require('../models/Skill');
 const experienceModel = require('../models/Experience');
+const educationModel = require('../models/Education');
 
 const models = [
   userModel,
@@ -17,6 +18,7 @@ const models = [
   aboutModel,
   skillModel,
   experienceModel,
+  educationModel,
 ];
 
 const connection = new Sequelize(databaseConfig);
