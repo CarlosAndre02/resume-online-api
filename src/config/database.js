@@ -20,14 +20,3 @@ module.exports = {
     updatedAt: 'updated_at',
   },
 };
-
-/* {
-  development: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: "database_development",
-    host: DB_HOST,
-    dialect: "postgres",
-}
-}
-*/
