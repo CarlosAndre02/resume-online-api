@@ -91,7 +91,7 @@ module.exports = {
       const newData = await education.update(req.body);
       return res.json({
         id: newData.id,
-        position: newData.position,
+        degree: newData.degree,
         school: newData.school,
         start_date: newData.start_date,
         end_date: newData.end_date,
