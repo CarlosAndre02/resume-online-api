@@ -40,6 +40,12 @@ module.exports = {
         ],
       });
 
+      if (!profile) {
+        return res.status(400).json({
+          errors: ['Perfil não existe'],
+        });
+      }
+
       return res.json(profile);
     } catch (e) {
       return res.json(null);
