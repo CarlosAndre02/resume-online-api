@@ -1,8 +1,18 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',
+    'https://resume-online-mu.vercel.app',
+  ],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -19,5 +29,5 @@ app.use(require('./routes/skill'));
 app.use(require('./routes/experience'));
 app.use(require('./routes/education'));
 
-const port = process.env.APP_PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Acessar http://localhost:${port}`));
