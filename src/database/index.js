@@ -21,7 +21,7 @@ const models = [
   educationModel,
 ];
 
-const connection = new Sequelize(databaseConfig);
+const connection = new Sequelize(databaseConfig[process.env.NODE_ENV]);
 
 models.forEach((model) => model.init(connection));
 models.forEach(
