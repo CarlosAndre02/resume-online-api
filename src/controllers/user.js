@@ -19,8 +19,11 @@ module.exports = {
 
       return res.json({ id, username });
     } catch (e) {
-      return res.status(400).json({
+      return res.status(400).json(
+        Array.isArray(e.errors) ? {
         errors: e.errors.map((err) => err.message),
+      } : {
+        errors: e
       });
     }
   },
