@@ -21,9 +21,18 @@ const models = [
   educationModel,
 ];
 
-const connection = new Sequelize(databaseConfig[process.env.NODE_ENV]);
+(async () => {
+  const connection = new Sequelize(databaseConfig[process.env.NODE_ENV]);
 
-models.forEach((model) => model.init(connection));
-models.forEach(
-  (model) => model.associate && model.associate(connection.models),
-);
+  try {
+    await connection.authenticate();
+    console.log("Connection has been established successfully.");
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
+
+  models.forEach((model) => model.init(connection));
+  models.forEach(
+    (model) => model.associate && model.associate(connection.models)
+  );
+})();
